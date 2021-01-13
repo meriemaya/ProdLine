@@ -6,4 +6,8 @@
     <color name="colorAccentDark">#07756A</color>
     <color name="black">#000000</color>
 
+
+
+    <color name="disabled">#D3D3D3</color>
+
 </resources>

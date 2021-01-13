@@ -9,13 +9,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.e.chaincontrol.R;
-import com.e.chaincontrol.data.DBHelper;
 
 public class AddConfigActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText eTextNameConfig, eTextIpConfig, eTextPort;
     Button btnSave;
-    DBHelper db;
     ConfigViewModel configViewModel= new ConfigViewModel(this);
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +40,7 @@ public class AddConfigActivity extends AppCompatActivity implements View.OnClick
         if ((! editIp.equals("")) && (!editName.equals("")) && (!editPort.equals(""))){
             configViewModel.AddMachine(editName,editIp,Integer.parseInt(editPort));
             Toast.makeText(this,"Added Successfully",Toast.LENGTH_LONG).show();
+            finish();
 
         }else{
             Toast.makeText(this,"All fields are required",Toast.LENGTH_LONG).show();

@@ -115,7 +115,12 @@ public class ControlActivity extends AppCompatActivity implements SeekBar.OnSeek
         });
 
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
+            public void onClick(DialogInterface dialog, int whichButton)
+            {
+
+                imgMinus.setEnabled(false);
+                imgPlus.setEnabled(false);
+                btnStop.setEnabled(false);
                 dialog.dismiss();
             }
         });

@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.e.chaincontrol.data.DBHelper;
 import com.e.chaincontrol.models.MachineModel;
-import com.e.chaincontrol.ui.main_activity.Client;
 
 public class ControlViewModel {
     private MachineModel machine;
@@ -17,9 +16,9 @@ public class ControlViewModel {
         db=DBHelper.getInstance(context);
     }
 
-    public void sendCommand(String command) {
+    public boolean sendCommand(String command) {
         //pop up
-        client.doInBackground(command, machine.getIP());
+       return client.doInBackground(command, machine.getIP());
     }
 
     public MachineModel findMachine(int id){

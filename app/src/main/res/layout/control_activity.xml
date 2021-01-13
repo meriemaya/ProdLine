@@ -54,7 +54,7 @@
             android:layout_width="@dimen/image_l"
             android:layout_height="@dimen/image_l"
             android:background="@drawable/minus"
-            android:backgroundTint="@color/colorAccentDark"
+
             android:layout_marginLeft="@dimen/margin_s"/>
         <ImageView
             android:id="@+id/img_plus"
@@ -63,7 +63,6 @@
             android:layout_width="@dimen/image_l"
             android:layout_height="@dimen/image_l"
             android:background="@drawable/plus"
-            android:backgroundTint="@color/colorAccentDark"
             android:layout_marginRight="@dimen/margin_s"
             />
         <SeekBar
@@ -87,7 +86,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/btn_start"
-        android:background="@android:color/holo_green_light"
+        android:background="@drawable/button_background_positive"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_l"
@@ -105,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_m"
         android:text="@string/btn_stop"
-        android:background="@android:color/holo_red_dark"
+        android:background="@drawable/button_background_negative"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_l"

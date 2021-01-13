@@ -1,12 +1,10 @@
 package com.e.chaincontrol.ui.main_activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,12 +17,6 @@ import com.e.chaincontrol.models.MachineModel;
 import com.e.chaincontrol.ui.add_config.AddConfigActivity;
 import com.e.chaincontrol.ui.control_activity.ControlActivity;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.Socket;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, OnMachineClicked {
@@ -34,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnDisplay;
     Button btnAddConfig;
     TextView title ;
-    MachineViewModel viewModel = new MachineViewModel(this);
+    MainActivityViewModel viewModel = new MainActivityViewModel(this);
     MyAdapter myAdapter;
 
 
@@ -68,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Toast.LENGTH_LONG).show();
                 }
                 myAdapter = new MyAdapter(listMachine, this);
+                DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                        DividerItemDecoration.VERTICAL);
+                recyclerView.addItemDecoration(dividerItemDecoration);
                 recyclerView.setAdapter(myAdapter);
                 recyclerView.setVisibility(View.VISIBLE);
                 break;
@@ -88,6 +83,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent= new Intent(this, ControlActivity.class);
         intent.putExtra("ID",tmpId);
         startActivity(intent);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(myAdapter!=null){
+            myAdapter.setMachines(viewModel.getMyMachines());
+            myAdapter.notifyDataSetChanged();
+        }
 
 
     }

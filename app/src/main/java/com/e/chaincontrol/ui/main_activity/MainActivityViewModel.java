@@ -8,7 +8,7 @@ import com.e.chaincontrol.models.MachineModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MachineViewModel {
+public class MainActivityViewModel {
 
     private List<MachineModel> myMachines;
     Context context;
@@ -16,7 +16,7 @@ public class MachineViewModel {
 
 
 
-    public MachineViewModel(Context ctx) {
+    public MainActivityViewModel(Context ctx) {
         context=ctx;
         db=DBHelper.getInstance(context);
 

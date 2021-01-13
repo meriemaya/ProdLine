@@ -30,6 +30,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ElementView>{
 
     }
 
+ public void setMachines(List<MachineModel> machines) {
+     this.machines = machines;
+ }
 
     @NonNull
     @Override
