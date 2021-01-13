@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <TextView
+        android:id="@+id/control_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/title"
+        android:text="@string/control_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/machine_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/machine_name"
+        android:textSize="@dimen/text_m"
+        app:layout_constraintStart_toStartOf="@+id/vdo_stream"
+        app:layout_constraintTop_toBottomOf="@+id/control_title"
+        app:layout_constraintBottom_toTopOf="@+id/vdo_stream"
+
+        />
+    <VideoView
+        android:id="@+id/vdo_stream"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/control_title"
+        app:layout_constraintBottom_toBottomOf="@+id/layoutSlider"
+        android:layout_marginVertical="@dimen/margin_xxl"
+        android:layout_marginHorizontal="@dimen/margin_m"
+        />
+
+    <RelativeLayout
+        android:id="@+id/layoutSlider"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_stop"
+        android:layout_marginVertical="@dimen/margin_xl"
+        >
+        <ImageView
+            android:id="@+id/img_minus"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/image_l"
+            android:layout_height="@dimen/image_l"
+            android:background="@drawable/minus"
+            android:backgroundTint="@color/colorAccentDark"
+            android:layout_marginLeft="@dimen/margin_s"/>
+        <ImageView
+            android:id="@+id/img_plus"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/image_l"
+            android:layout_height="@dimen/image_l"
+            android:background="@drawable/plus"
+            android:backgroundTint="@color/colorAccentDark"
+            android:layout_marginRight="@dimen/margin_s"
+            />
+        <SeekBar
+            android:id="@+id/speed_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/img_minus"
+            android:layout_toLeftOf="@id/img_plus"
+            android:layout_centerVertical="true"
+            android:background="@android:color/darker_gray"
+            android:progress="80"
+            android:enabled="false"
+
+            />
+    </RelativeLayout>
+
+
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_start"
+        android:background="@android:color/holo_green_light"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_l"
+        android:layout_marginHorizontal="@dimen/margin_m"
+        android:layout_marginBottom="@dimen/margin_l"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_stop"
+
+
+        />
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_m"
+        android:text="@string/btn_stop"
+        android:background="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_l"
+        android:layout_marginBottom="@dimen/margin_l"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_start"
+
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

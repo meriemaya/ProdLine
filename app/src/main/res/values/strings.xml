@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Chain Control</string>
+    <string name="config_activity_title">New configuration</string>
+    <string name="home_activity_title"> Home</string>
+    <string name="btn_all_machines">Display Machines</string>
+    <string name="btn_add_machine">Add config</string>
+
+    <string name="e_text_hostname">Configuration Name</string>
+    <string name="e_text_ip">Machine IP Address</string>
+    <string name="btn_submit_config">Save</string>
+    <string name="control_title">Production line</string>
+    <string name="e_text_Port">Port</string>
+    <string name="btn_start">Start</string>
+    <string name="btn_stop">Stop</string>
+    <string name="machine_name">Raspberrypi Home</string>
+</resources>

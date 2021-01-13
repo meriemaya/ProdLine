@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main_activity.MainActivity">
+
+
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_l"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/home_activity_title"
+        style="@style/title"
+        android:text="@string/home_activity_title"
+
+        />
+    <ImageView
+        android:id="@+id/home_image"
+        android:layout_width="@android:dimen/notification_large_icon_width"
+        android:layout_height="@android:dimen/notification_large_icon_height"
+        android:src="@drawable/line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:layout_marginTop="@dimen/margin_xl"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ProdLine"
+        app:layout_constraintTop_toBottomOf="@+id/home_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorAccentDark"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btn_all_machines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_xl"
+        android:text="@string/btn_all_machines"
+        android:layout_marginLeft="@dimen/margin_xl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_image"
+        style="@style/Widget.AppCompat.Button.Colored"
+        />
+    <Button
+        android:id="@+id/btn_add_machine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_xl"
+        android:text="@string/btn_add_machine"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="@dimen/margin_xl"
+        app:layout_constraintStart_toEndOf="@+id/btn_all_machines"
+        app:layout_constraintTop_toBottomOf="@+id/home_image"
+        style="@style/Widget.AppCompat.Button.Colored"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_machine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_all_machines"
+        android:layout_marginTop="@dimen/margin_l"
+        tools:listitem="@layout/machine_item"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
