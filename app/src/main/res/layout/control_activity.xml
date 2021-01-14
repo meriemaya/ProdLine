@@ -18,15 +18,16 @@
         android:layout_height="wrap_content"
         tools:text="@string/machine_name"
         android:textSize="@dimen/text_m"
-        app:layout_constraintStart_toStartOf="@+id/vdo_stream"
+        app:layout_constraintStart_toStartOf="@+id/iv_stream"
         app:layout_constraintTop_toBottomOf="@+id/control_title"
-        app:layout_constraintBottom_toTopOf="@+id/vdo_stream"
+        app:layout_constraintBottom_toTopOf="@+id/iv_stream"
 
         />
-    <VideoView
-        android:id="@+id/vdo_stream"
+    <ImageView
+        android:id="@+id/iv_stream"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:src="@drawable/minus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/control_title"

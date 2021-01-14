@@ -2,6 +2,7 @@ package com.e.chaincontrol.ui.control_activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import com.e.chaincontrol.R;
 
@@ -22,7 +24,7 @@ public class ControlActivity extends AppCompatActivity implements SeekBar.OnSeek
     private TextView textNameMachine;
     private ImageView imgPlus, imgMinus;
     private Button btnStart, btnStop;
-    private VideoView vdoStream;
+    private ImageView image;
     private SeekBar speedBar;
     private ControlViewModel controlViewModel=new ControlViewModel(this);
 
@@ -37,10 +39,21 @@ public class ControlActivity extends AppCompatActivity implements SeekBar.OnSeek
         //setStreamVideo
         startListener(btnStart);
         stopListener(btnStop);
-
+        startObserver();
 
     }
 
+    private void startObserver() {
+        controlViewModel.bitmap.observe(this, new Observer<Bitmap>() {
+            @Override
+            public void onChanged(Bitmap bitmap) {
+                if (bitmap!= null) {
+                    image.setImageBitmap(Bitmap.createScaledBitmap(bitmap, image.getWidth(), image.getHeight(), false));
+                    image.invalidate();
+                }
+            }
+        });
+    }
 
 
     public void displayMachine(){
@@ -48,7 +61,6 @@ public class ControlActivity extends AppCompatActivity implements SeekBar.OnSeek
         int ID = mIntent.getIntExtra("ID", 0);
         controlViewModel.setMachine(controlViewModel.findMachine(ID));
         textNameMachine.setText(controlViewModel.getMachine().getName()+": "+controlViewModel.getMachine().getIP());
-
     }
 
     public void initViews() {
@@ -57,7 +69,7 @@ public class ControlActivity extends AppCompatActivity implements SeekBar.OnSeek
         imgPlus=findViewById(R.id.img_plus);
         btnStart=findViewById(R.id.btn_start);
         btnStop=findViewById(R.id.btn_stop);
-        vdoStream=findViewById(R.id.vdo_stream);
+       image=findViewById(R.id.iv_stream);
         speedBar=findViewById(R.id.speed_bar);
         speedBar.setOnSeekBarChangeListener(this);
         speedBar.setMax(255);
